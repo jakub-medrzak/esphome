@@ -1,0 +1,13 @@
+esphome:
+  name: test12
+  friendly_name: "zażółć gęślą jaźń - ZAŻÓŁĆ GĘŚLĄ JAŹŃ"
+
+esp8266:
+  board: nodemcuv2
+
+sensor:
+  - platform: template
+    name: "zażółć gęślą jaźń - ZAŻÓŁĆ GĘŚLĄ JAŹŃ"
+
+  - platform: template
+    name: None

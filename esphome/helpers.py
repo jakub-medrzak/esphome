@@ -8,6 +8,7 @@ from typing import Union
 import tempfile
 from urllib.parse import urlparse
 import re
+import unicodedata
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -360,3 +361,10 @@ def snake_case(value):
 def sanitize(value):
     """Same behaviour as `helpers.cpp` method `str_sanitize`."""
     return re.sub("[^-_0-9a-zA-Z]", r"", value)
+
+def strip_accents(value):
+    return "".join(
+        c
+        for c in unicodedata.normalize("NFKD", str(value))
+        if unicodedata.category(c) != "Mn"
+    )
